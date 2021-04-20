@@ -1,6 +1,6 @@
 console.log('***** Cart Functions *****');
-// Make sure to test all functions here in the JS file! We want to see how you are testing your code!!!
 
+// Make sure to test all functions here in the JS file! We want to see how you are testing your code!!!
 // ## Required Features
 // Update the `cart.js` file to do the following:
 // - #1.) Create a global variable named `basket` and set it to an empty array.
@@ -15,7 +15,7 @@ console.log(`The contents of the empty array, called 'basket', are: `, basket); 
 //   - add the new item to the global array `basket`.
 //   - return `true` indicating the item was added
 console.log("--- Question #2. ---");
-let addItem = item => {
+const addItem = item => {
   basket.push(item);
   return true;
 };
@@ -34,7 +34,7 @@ const listItems = array => {
   }
 };
 console.log(`To give function 'listItems' more items to list, I'm adding a 'pear' to the 'basket' array.  Expect 'true': `, addItem("pear"));
-console.log(`Running function 'listItems' on the 'basket' array.  Expect 'apple' & 'pear' on separate rows, below:`);
+console.log(`Running function 'listItems' on the 'basket' array.  Expect 'apple' and 'pear' on separate rows, below:`);
 listItems(basket);
 console.log(`The contents of the 'basket' array are now: `, basket); // Outputs: ["apple", "pear"].
 
@@ -47,7 +47,7 @@ const empty = array => {
   array.length = 0;
 };
 console.log(`Testing the function 'empty' on the 'basket' array.  Expect 'undefined': `, empty(basket));
-console.log(`After running the function 'empty', the contents of the 'basket' array are now: `, basket); // Should output an empty array, however, it's outputting: ["pear"].
+console.log(`After running the function 'empty', the contents of the 'basket' array are now: `, basket);
 
 
 
@@ -103,14 +103,48 @@ console.log(`Running function 'isFull' on 'basket'.  Expect 'true': `, isFull(ba
 //   - If an item was added to the array, return `true`
 //   - If there was no room and the item could not be added return `false`
 console.log("--- Stretch Goals #3. ---");
-
+const newAddItem = item => { // We can't rename functions, can we?  Even if I had used "let" instead of "const" when delcaring "addItem"?
+  if (isFull(basket) == false) {
+    basket.push(item);
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(`Testing the function 'newAddItem', below.`);
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`Running 'newAddItem' with item 'mansion'.  Expect 'false': `, newAddItem("mansion"));
+console.log(`Emptying 'basket' with function 'empty', to test the adding feature.  Expect 'undefined': `, empty(basket));
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`Running 'newAddItem' with item 'mansion'.  Expect 'true': `, newAddItem("mansion"));
+console.log(`The contents of the 'basket' array are now: `, basket);
 
 
 
 // __Using Array built-in functions!__
-//
 // #S4. Create a function called `removeItem`. It should:
 //   - Take an input parameter for a string `item`
-//   - Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
-//   - Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
+//   - Use [Array.indexOf] to find the index of the first matching item in the basket.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+//   - Use [Array.splice] to remove the first matching item from the basket.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 //   - Return the item removed or `null` if the item was not found
+console.log("--- Stretch Goals #4. ---");
+console.log(`Adding more items to 'basket' to test function 'removeItem'.  Expect 'true' four times: `, addItem("apple"), addItem("pear"), addItem("grapefruit"), addItem("banana"));
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(basket.indexOf("banana")); // Outputs "4", the index of "banana" in "basket" array.
+console.log(basket.splice(4)); // Outputs "banana", the item at index 4 in "basket" array.
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(basket.splice(basket.indexOf("pear")));
+console.log(`The contents of the 'basket' array are now: `, basket);
+
+const removeItem = item => {
+  basket.splice(basket.indexOf(item));
+};
+console.log(`Running 'removeItem' with 'grapefruit'.  Expect 'grapefruit': `, removeItem("grapefruit"));
+
+
+
+
+
+
+
+;
