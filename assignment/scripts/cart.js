@@ -15,7 +15,7 @@ console.log(`The contents of the empty array, called 'basket', are: `, basket); 
 //   - add the new item to the global array `basket`.
 //   - return `true` indicating the item was added
 console.log("--- Question #2. ---");
-const addItem = item => {
+let addItem = item => {
   basket.push(item);
   return true;
 };
@@ -52,15 +52,14 @@ console.log(`After running the function 'empty', the contents of the 'basket' ar
 
 
 // > __IMPORTANT__
-// - #5.) Make sure that you are writing code *in the file* to test every function that you write!
-// For example, to test `addItem`:
+// - #5.) Make sure that you are writing code *in the file* to test every function that you write! For example, to test `addItem`:
 // console.log(`Basket is ${basket}`);
 // console.log('Adding apples (expect true)', addItem('apples'));
 // console.log(`Basket is now ${basket}`);
 console.log("--- Question #5. ---");
 console.log("I've been testing the code at each step, but to double-check my work, I'm going to add #5's console.log checks to the output as well. :)");
 console.log(`Basket is currently: `, basket);
-console.log(`Adding apples to 'basket' (expect true): `, addItem('apples'));
+console.log(`Adding 'apples' to 'basket' (expect true): `, addItem('apples'));
 console.log(`Basket is currently: `, basket);
 console.log(`Removing all items from 'basket' (expect undefined): `, empty(basket));
 console.log(`Basket is currently: `, basket);
@@ -69,20 +68,45 @@ console.log(`Basket is currently: `, basket);
 
 // ### Stretch Goals
 // Remember that Stretch Goals are not required, but will help you to further develop concepts from the skills we have covered.
-//
 // __Using functions in other functions!__
-//
+
 // #S1. Add a global `const` named `maxItems` and set it to 5.
-//
+console.log("--- Stretch Goals #1. ---");
+const maxItems = 5;
+console.log(`The value of const 'maxItems' is: `, maxItems);
+
+
+
 // #S2. Create a function called isFull(). It should:
 //   - return `false` if the basket contains *less* than max number of items
 //   - return `true` otherwise (equal or more than maxItems)
-//
+console.log("--- Stretch Goals #2. ---");
+const isFull = array => {
+  if (array.length < maxItems) {
+    return false;
+  } else {
+    return true;
+  }
+};
+console.log(`Testing the function 'isFull', below.`);
+console.log(`Adding a 'watermelon' to 'basket'.  Expect 'true': `, addItem("watermelon"));
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`Running function 'isFull' on 'basket'.  Expect 'false': `, isFull(basket));
+console.log(`Adding more items to 'basket' to test when full.  Expect 'true' five times: `, addItem("apple"), addItem("pear"), addItem("grapefruit"), addItem("banana"), addItem("orange"));
+console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`Running function 'isFull' on 'basket'.  Expect 'true': `, isFull(basket));
+
+
+
 // #S3. Update the required `addItem` function to:
 //   - Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
 //   - If an item was added to the array, return `true`
 //   - If there was no room and the item could not be added return `false`
-//
+console.log("--- Stretch Goals #3. ---");
+
+
+
+
 // __Using Array built-in functions!__
 //
 // #S4. Create a function called `removeItem`. It should:
