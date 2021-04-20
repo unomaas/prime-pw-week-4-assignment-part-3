@@ -6,7 +6,8 @@ console.log('***** Cart Functions *****');
 // - #1.) Create a global variable named `basket` and set it to an empty array.
 console.log("--- Question #1. ---");
 const basket = [];
-console.log(`The contents of the empty array, called 'basket', are: `, basket); // Outputs: [].
+console.log(`The contents of the empty array, 'basket', are: `, basket); // Outputs: [].
+console.log("\n"); // My console is getting a little verbose, so I'm adding line breaks for readability's sake.
 
 
 
@@ -19,8 +20,9 @@ const addItem = item => {
   basket.push(item);
   return true;
 };
-console.log(`Adding an 'apple' to the 'basket' array, with function 'addItem'.  Expect 'true': `, addItem("apple"));
-console.log(`The contents of the 'basket' array are now: `, basket); // Outputs: ["apple"].
+console.log(`Adding an 'apple' to the 'basket' array, with function 'addItem("apple")'.  Expect 'true': `, addItem("apple"));
+console.log(`The contents of 'basket' are now: `, basket); // Outputs: ["apple"].
+console.log("\n");
 
 
 
@@ -33,10 +35,11 @@ const listItems = array => {
     console.log(array[i]);
   }
 };
-console.log(`To give function 'listItems' more items to list, I'm adding a 'pear' to the 'basket' array.  Expect 'true': `, addItem("pear"));
-console.log(`Running function 'listItems' on the 'basket' array.  Expect 'apple' and 'pear' on separate rows, below:`);
+console.log(`To give function 'listItems' more elements to list, I'm adding a 'pear' to the 'basket' array.  Expect 'true': `, addItem("pear"));
+console.log(`Running function 'listItems(basket)'.  Expect 'apple' and 'pear' on separate rows, below:`);
 listItems(basket);
-console.log(`The contents of the 'basket' array are now: `, basket); // Outputs: ["apple", "pear"].
+console.log(`The contents of 'basket' are now: `, basket); // Outputs: ["apple", "pear"].
+console.log("\n");
 
 
 
@@ -48,6 +51,7 @@ const empty = array => {
 };
 console.log(`Testing the function 'empty' on the 'basket' array.  Expect 'undefined': `, empty(basket));
 console.log(`After running the function 'empty', the contents of the 'basket' array are now: `, basket);
+console.log("\n");
 
 
 
@@ -57,23 +61,24 @@ console.log(`After running the function 'empty', the contents of the 'basket' ar
 // console.log('Adding apples (expect true)', addItem('apples'));
 // console.log(`Basket is now ${basket}`);
 console.log("--- Question #5. ---");
-console.log("I've been testing the code at each step, but to double-check my work, I'm going to add #5's console.log checks to the output as well. :)");
-console.log(`Basket is currently: `, basket);
+console.log("I've been testing the code at each step, but to double-check my work, I'm going to add Question #5's console.log checks to the output as well. :)");
+console.log(`The contents of 'basket' are now: `, basket);
 console.log(`Adding 'apples' to 'basket' (expect true): `, addItem('apples'));
-console.log(`Basket is currently: `, basket);
+console.log(`The contents of 'basket' are now: `, basket);
 console.log(`Removing all items from 'basket' (expect undefined): `, empty(basket));
-console.log(`Basket is currently: `, basket);
+console.log(`The contents of 'basket' are now: `, basket);
+console.log("\n");
 
 
 
 // ### Stretch Goals
 // Remember that Stretch Goals are not required, but will help you to further develop concepts from the skills we have covered.
 // __Using functions in other functions!__
-
 // #S1. Add a global `const` named `maxItems` and set it to 5.
 console.log("--- Stretch Goals #1. ---");
 const maxItems = 5;
 console.log(`The value of const 'maxItems' is: `, maxItems);
+console.log("\n");
 
 
 
@@ -89,12 +94,14 @@ const isFull = array => {
   }
 };
 console.log(`Testing the function 'isFull', below.`);
+console.log(`The contents of 'basket' are now: `, basket);
 console.log(`Adding a 'watermelon' to 'basket'.  Expect 'true': `, addItem("watermelon"));
-console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`The contents of 'basket' are now: `, basket);
 console.log(`Running function 'isFull' on 'basket'.  Expect 'false': `, isFull(basket));
 console.log(`Adding more items to 'basket' to test when full.  Expect 'true' five times: `, addItem("apple"), addItem("pear"), addItem("grapefruit"), addItem("banana"), addItem("orange"));
-console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`The contents of 'basket' are now: `, basket);
 console.log(`Running function 'isFull' on 'basket'.  Expect 'true': `, isFull(basket));
+console.log("\n");
 
 
 
@@ -112,12 +119,13 @@ const newAddItem = item => { // We can't rename functions, can we?  Even if I ha
   }
 };
 console.log(`Testing the function 'newAddItem', below.`);
-console.log(`The contents of the 'basket' array are now: `, basket);
-console.log(`Running 'newAddItem' with item 'mansion'.  Expect 'false': `, newAddItem("mansion"));
+console.log(`The contents of 'basket' are now: `, basket);
+console.log(`Running 'newAddItem("mansion")'.  Expect 'false': `, newAddItem("mansion"));
 console.log(`Emptying 'basket' with function 'empty', to test the adding feature.  Expect 'undefined': `, empty(basket));
-console.log(`The contents of the 'basket' array are now: `, basket);
-console.log(`Running 'newAddItem' with item 'mansion'.  Expect 'true': `, newAddItem("mansion"));
-console.log(`The contents of the 'basket' array are now: `, basket);
+console.log(`The contents of 'basket' are now: `, basket);
+console.log(`Running 'newAddItem("mansion")'.  Expect 'true': `, newAddItem("mansion"));
+console.log(`The contents of 'basket' are now: `, basket);
+console.log("\n");
 
 
 
@@ -129,43 +137,14 @@ console.log(`The contents of the 'basket' array are now: `, basket);
 //   - Return the item removed or `null` if the item was not found
 console.log("--- Stretch Goals #4. ---");
 console.log(`Adding more items to 'basket' to test function 'removeItem'.  Expect 'true' four times: `, addItem("apple"), addItem("pear"), addItem("grapefruit"), addItem("banana"));
-console.log("----------------------------------------");
-console.log(`The contents of the 'basket' array are now: `, basket);
-console.log(basket.indexOf("banana")); // Outputs "4", the index of "banana" in "basket" array.
-console.log(basket.splice(4)); // Outputs and removes "banana", the item at index 4 in "basket" array.
-console.log("----------------------------------------");
-console.log(`The contents of the 'basket' array are now: `, basket); // Ouputs Mansion, Apple, Pear, Grapefruit
-console.log(basket.indexOf("pear")); // Outputs 2 to console.
-console.log(basket.splice(2)); // I'm returning the index of pear, which is a number, and that's why it's splicing two things instead of one.
-console.log(`The contents of the 'basket' array are now: `, basket);
-
+console.log(`The contents of 'basket' are now: `, basket);
 const removeItem = item => {
   if (basket.indexOf(item) > -1) { // If you find 'item' in 'basket' array:
-    console.log(basket.splice(basket.indexOf(item))); // console.log the spliced item of index of Item.
+    return basket.splice(basket.indexOf(item), 1); // Return and remove JUST the spliced item of index of item.
   } else { // If 'item' was not found in 'basket' array:
-    console.log(null); // console.log null.
+    return null; // Return null.
   }
 };
-
-// const removeItem = item => {
-//   basket.splice(basket.indexOf(item));
-// };
-
-// function updateVegetablesCollection (veggies, veggie) {
-//     if (veggies.indexOf(veggie) === -1) {
-//         veggies.push(veggie);
-//         console.log('New veggies collection is : ' + veggies);
-//     } else if (veggies.indexOf(veggie) > -1) {
-//         console.log(veggie + ' already exists in the veggies collection.');
-//     }
-// }
-
-console.log(`Running 'removeItem' with 'grapefruit'.  Expect 'grapefruit': `, removeItem("grapefruit"));
-
-
-
-
-
-
-
-;
+console.log(`Running 'removeItem("mansion")'.  Expect 'mansion': `, removeItem("mansion"));
+console.log(`Running 'removeItem("rocket")'.  Expect 'null': `, removeItem("rocket"));
+console.log(`The contents of 'basket' are now: `, basket);
