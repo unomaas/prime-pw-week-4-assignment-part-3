@@ -129,16 +129,37 @@ console.log(`The contents of the 'basket' array are now: `, basket);
 //   - Return the item removed or `null` if the item was not found
 console.log("--- Stretch Goals #4. ---");
 console.log(`Adding more items to 'basket' to test function 'removeItem'.  Expect 'true' four times: `, addItem("apple"), addItem("pear"), addItem("grapefruit"), addItem("banana"));
+console.log("----------------------------------------");
 console.log(`The contents of the 'basket' array are now: `, basket);
 console.log(basket.indexOf("banana")); // Outputs "4", the index of "banana" in "basket" array.
-console.log(basket.splice(4)); // Outputs "banana", the item at index 4 in "basket" array.
-console.log(`The contents of the 'basket' array are now: `, basket);
-console.log(basket.splice(basket.indexOf("pear")));
+console.log(basket.splice(4)); // Outputs and removes "banana", the item at index 4 in "basket" array.
+console.log("----------------------------------------");
+console.log(`The contents of the 'basket' array are now: `, basket); // Ouputs Mansion, Apple, Pear, Grapefruit
+console.log(basket.indexOf("pear")); // Outputs 2 to console.
+console.log(basket.splice(2)); // I'm returning the index of pear, which is a number, and that's why it's splicing two things instead of one.
 console.log(`The contents of the 'basket' array are now: `, basket);
 
 const removeItem = item => {
-  basket.splice(basket.indexOf(item));
+  if (basket.indexOf(item) > -1) { // If you find 'item' in 'basket' array:
+    console.log(basket.splice(basket.indexOf(item))); // console.log the spliced item of index of Item.
+  } else { // If 'item' was not found in 'basket' array:
+    console.log(null); // console.log null.
+  }
 };
+
+// const removeItem = item => {
+//   basket.splice(basket.indexOf(item));
+// };
+
+// function updateVegetablesCollection (veggies, veggie) {
+//     if (veggies.indexOf(veggie) === -1) {
+//         veggies.push(veggie);
+//         console.log('New veggies collection is : ' + veggies);
+//     } else if (veggies.indexOf(veggie) > -1) {
+//         console.log(veggie + ' already exists in the veggies collection.');
+//     }
+// }
+
 console.log(`Running 'removeItem' with 'grapefruit'.  Expect 'grapefruit': `, removeItem("grapefruit"));
 
 
