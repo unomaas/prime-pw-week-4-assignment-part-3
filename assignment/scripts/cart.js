@@ -6,7 +6,9 @@ console.log('***** Cart Functions *****');
 // - #1.) Create a global variable named `basket` and set it to an empty array.
 console.log("--- Question #1. ---");
 const basket = [];
-console.log(`The contents of the empty array, called "basket", are: `, basket); // Outputs [].
+console.log(`The contents of the empty array, called 'basket', are: `, basket); // Outputs: [].
+
+
 
 // - #2.) Create a function called `addItem`. It should:
 //   - take an input parameter for a string `item`
@@ -17,9 +19,10 @@ const addItem = item => {
   basket.push(item);
   return true;
 };
-console.log(`Testing adding an item to the basket array, with function addItem, below:`);
-console.log(addItem("apple"));
-console.log(`The contents of the basket array are now: `, basket); // Outputs ["apple"].
+console.log(`Adding an 'apple' to the 'basket' array, with function 'addItem'.  Expect 'true': `, addItem("apple"));
+console.log(`The contents of the 'basket' array are now: `, basket); // Outputs: ["apple"].
+
+
 
 // - #3.) Create a function called `listItems`. It should:
 //   - loop over the items in the `basket` array
@@ -30,20 +33,40 @@ const listItems = array => {
     console.log(array[i]);
   }
 };
-console.log(addItem("pear")); // To give function listItems some more items to list.
-console.log(listItems(basket));
-console.log(basket);
+console.log(`To give function 'listItems' more items to list, I'm adding a 'pear' to the 'basket' array.  Expect 'true': `, addItem("pear"));
+console.log(`Running function 'listItems' on the 'basket' array.  Expect 'apple' & 'pear' on separate rows, below:`);
+listItems(basket);
+console.log(`The contents of the 'basket' array are now: `, basket); // Outputs: ["apple", "pear"].
+
+
 
 // - #4.) Create a function called `empty`. It should:
 //   - reset the `basket` to an empty array
-//
+console.log("--- Question #4. ---");
+const empty = array => {
+  array.length = 0;
+};
+console.log(`Testing the function 'empty' on the 'basket' array.  Expect 'undefined': `, empty(basket));
+console.log(`After running the function 'empty', the contents of the 'basket' array are now: `, basket); // Should output an empty array, however, it's outputting: ["pear"].
+
+
+
 // > __IMPORTANT__
 // - #5.) Make sure that you are writing code *in the file* to test every function that you write!
 // For example, to test `addItem`:
 // console.log(`Basket is ${basket}`);
 // console.log('Adding apples (expect true)', addItem('apples'));
 // console.log(`Basket is now ${basket}`);
-//
+console.log("--- Question #5. ---");
+console.log("I've been testing the code at each step, but to double-check my work, I'm going to add #5's console.log checks to the output as well. :)");
+console.log(`Basket is currently: `, basket);
+console.log(`Adding apples to 'basket' (expect true): `, addItem('apples'));
+console.log(`Basket is currently: `, basket);
+console.log(`Removing all items from 'basket' (expect undefined): `, empty(basket));
+console.log(`Basket is currently: `, basket);
+
+
+
 // ### Stretch Goals
 // Remember that Stretch Goals are not required, but will help you to further develop concepts from the skills we have covered.
 //
