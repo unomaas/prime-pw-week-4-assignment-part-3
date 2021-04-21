@@ -63,9 +63,9 @@ console.log("\n");
 console.log("--- Question #5. ---");
 console.log("I've been testing the code at each step, but to double-check my work, I'm going to add Question #5's console.log checks to the output as well. :)");
 console.log(`The contents of 'basket' are now: `, basket);
-console.log(`Adding 'apples' to 'basket' (expect true): `, addItem('apples'));
+console.log(`Adding 'apples' to 'basket' (expect 'true'): `, addItem('apples'));
 console.log(`The contents of 'basket' are now: `, basket);
-console.log(`Removing all items from 'basket' (expect undefined): `, empty(basket));
+console.log(`Removing all items from 'basket' (expect 'undefined'): `, empty(basket));
 console.log(`The contents of 'basket' are now: `, basket);
 console.log("\n");
 
@@ -145,6 +145,11 @@ const removeItem = item => {
     return null; // Return null.
   }
 };
-console.log(`Running 'removeItem("mansion")'.  Expect 'mansion': `, removeItem("mansion"));
-console.log(`Running 'removeItem("rocket")'.  Expect 'null': `, removeItem("rocket"));
+console.log(`Running function 'removeItem("mansion")'.  Expect 'mansion': `, removeItem("mansion"));
+console.log(`Running function 'removeItem("rocket")'.  Expect 'null': `, removeItem("rocket"));
 console.log(`The contents of 'basket' are now: `, basket);
+
+
+
+console.log("\n");
+console.log("Thanks for reviewing my code!");
